@@ -12,5 +12,8 @@ COPY . .
 # Compila o projeto e gera o .jar
 RUN mvn clean package -DskipTests
 
+# Expõe a porta 8080 (usada pela aplicação)
+EXPOSE 8080
+
 # Executa a aplicação
 CMD ["java", "-jar", "target/haraspro-0.0.1-SNAPSHOT.jar"]
