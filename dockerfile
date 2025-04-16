@@ -1,15 +1,16 @@
 FROM eclipse-temurin:17-jdk-alpine
 
-# Instala Maven e compila o projeto
+# Instala Maven
 RUN apk add --no-cache maven
 
+# Cria diretório da aplicação
 WORKDIR /app
+
+# Copia o código-fonte do projeto
 COPY . .
 
+# Compila o projeto e gera o .jar
 RUN mvn clean package -DskipTests
 
-# Copia o .jar gerado (ajuste o nome se for diferente)
-COPY target/*.jar app.jar
-
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Executa a aplicação
+CMD ["java", "-jar", "target/seu-projeto.jar"]
