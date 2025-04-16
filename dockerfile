@@ -13,4 +13,4 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Executa a aplicação
-CMD ["java", "-jar", "target/seu-projeto.jar"]
+CMD ["java", "-jar", "target/haraspro-0.0.1-SNAPSHOT.jar"]
